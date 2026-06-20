@@ -113,6 +113,8 @@ const DEFAULT_SETTINGS = {
   founderBio: "Praveen Rajesh Purohit founded Nanu.AI to empower Indian entrepreneurs, small businesses, and freelancers with modern digital identities. Our AI-driven engine creates premium layouts, allowing you to bypass tedious technical design and get active in hours.",
   founderPhoto: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400", // Soft illustration placeholder
   qrCode: "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=upi://pay?pa=8401094966@upi%26pn=Nanu%20AI%26am=1500%26cu=INR",
+  adminUsername: "praveenrajeshpurohit@gmail.com",
+  adminPassword: "Praveen@5187",
   enabledSections: {
     hero: true,
     builder: true,
@@ -187,10 +189,14 @@ app.get("/api/data", (req, res) => {
 // Admin Authentication endpoint
 app.post("/api/admin/login", (req, res) => {
   const { username, password } = req.body;
-  // Secure literal credentials as requested
+  
+  const currentUsername = dbState.adminSettings?.adminUsername || "praveenrajeshpurohit@gmail.com";
+  const currentPassword = dbState.adminSettings?.adminPassword || "Praveen@5187";
+
+  // Secure dynamic & fallback matching
   if (
     (username === "admin" && password === "password123") ||
-    (username === "praveenrajeshpurohit@gmail.com" && password === "Praveen@5187")
+    (username === currentUsername && password === currentPassword)
   ) {
     res.json({ success: true, token: ADMIN_TOKEN });
   } else {

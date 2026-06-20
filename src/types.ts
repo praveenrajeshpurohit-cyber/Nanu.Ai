@@ -103,6 +103,8 @@ export interface AdminSettings {
   founderPhoto: string; // base64 or placeholder url
   founderBio: string;
   qrCode: string; // base64 or placeholder url
+  adminUsername?: string;
+  adminPassword?: string;
   enabledSections: {
     hero: boolean;
     builder: boolean;

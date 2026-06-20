@@ -2841,7 +2841,45 @@ export default function App() {
                     {/* F. Settings & Sections Enable Toggle controllers */}
                     {activeAdminTab === "settings" && settings && (
                       <div className="flex flex-col gap-8">
-                        <h3 className="text-lg font-black text-white">Global Platform Configuration</h3>
+                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                          <h3 className="text-lg font-black text-white">Global Platform Configuration</h3>
+                          <span className="text-[11px] bg-emerald-500/10 text-emerald-400 font-extrabold px-3 py-1 rounded-full border border-emerald-500/20 uppercase">
+                            ✓ Dynamic DB Autoload
+                          </span>
+                        </div>
+
+                        {/* Secure Admin Credentials Configuration Segment */}
+                        <div className="bg-slate-950/40 p-6 rounded-2xl border border-slate-800 flex flex-col gap-4">
+                          <div className="flex items-center gap-2.5">
+                            <span className="p-2 rounded-xl bg-[#66FCF1]/10 text-[#66FCF1] flex items-center justify-center font-bold">🗝️</span>
+                            <div>
+                              <h4 className="text-xs font-black uppercase text-[#66FCF1] tracking-wider">Secure Administrative Login Settings</h4>
+                              <p className="text-[10px] text-slate-400">Configure your professional entry identifier and password parameters.</p>
+                            </div>
+                          </div>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
+                            <div>
+                              <label className="text-xs font-bold text-slate-400 block mb-1">Administrative Username / Email</label>
+                              <input
+                                type="text"
+                                value={settings.adminUsername || "praveenrajeshpurohit@gmail.com"}
+                                onChange={(e) => updateAdminSettings({ adminUsername: e.target.value })}
+                                className="w-full bg-slate-950 text-white rounded-lg border border-slate-800 px-3.5 py-2.5 text-xs outline-none focus:border-[#66FCF1] font-mono"
+                                placeholder="praveenrajeshpurohit@gmail.com"
+                              />
+                            </div>
+                            <div>
+                              <label className="text-xs font-bold text-slate-400 block mb-1">Administrative Secure Password</label>
+                              <input
+                                type="text"
+                                value={settings.adminPassword || "Praveen@5187"}
+                                onChange={(e) => updateAdminSettings({ adminPassword: e.target.value })}
+                                className="w-full bg-slate-950 text-white rounded-lg border border-slate-800 px-3.5 py-2.5 text-xs outline-none focus:border-[#66FCF1] font-mono font-bold"
+                                placeholder="Praveen@5187"
+                              />
+                            </div>
+                          </div>
+                        </div>
 
                         {/* General business parameters */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full text-slate-350">
