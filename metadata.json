@@ -1,0 +1,6 @@
+{
+  "name": "Nanu.AI",
+  "description": "A modern, premium AI Website Builder platform that converts prompts into gorgeous fully styled responsive landing pages and customized web designs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
